@@ -228,19 +228,19 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Events\Events.csproj">
+    <ProjectReference Include="..\infrastructure\Events\Events.csproj">
       <Project>{0a2ec014-adb9-4534-a51d-27bfc25930fc}</Project>
       <Name>Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.Logging.Data\Infrastructure.Logging.Data.csproj">
+    <ProjectReference Include="..\infrastructure\Infrastructure.Logging.Data\Infrastructure.Logging.Data.csproj">
       <Project>{cfe150b4-9d3e-4b3b-92d2-879ced57617e}</Project>
       <Name>Infrastructure.Logging.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure.Security\Infrastructure.Security.csproj">
+    <ProjectReference Include="..\infrastructure\Infrastructure.Security\Infrastructure.Security.csproj">
       <Project>{1e1cd019-4b5f-4c19-be02-f549bd8bde38}</Project>
       <Name>Infrastructure.Security</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+    <ProjectReference Include="..\infrastructure\Infrastructure\Infrastructure.csproj">
       <Project>{638a4e52-2f4a-428c-a51b-1e3127b7f88c}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
