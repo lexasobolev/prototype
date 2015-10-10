@@ -4,26 +4,26 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace UI.Web.Services.Implementation
 {
-    class Test : IHandler<AppStartup>
+    class Test: IHandler<AppStartup>
     {
-        public async Task<bool> HandleAsync(AppStartup e)
+        public async Task<bool> HandleAsync(AppStartup e, CancellationToken ct)
         {
-            await new Question()
+             await new Question()
                 .ExecuteAsync(
                     async (Answer1 a1) => true,
                     async (Answer2 a2) => true);
-
-            return true;       
+            return true;
         }
     }
 
     class Oracle : IHandler<Question>
     {
-        public async Task<bool> HandleAsync(Question e)
+        public async Task<bool> HandleAsync(Question e, CancellationToken ct)
         {
             await e.ReplyAsync(new Answer1());
             await e.ReplyAsync(new Answer2());
@@ -38,22 +38,22 @@ namespace UI.Web.Services.Implementation
         IHandler<Answer2>, 
         IHandler<Answer3>
     {
-        public async Task<bool> HandleAsync(Answer2 e)
+        public async Task<bool> HandleAsync(Answer2 e, CancellationToken ct)
         {
             return true;
         }
 
-        public async Task<bool> HandleAsync(Answer3 e)
+        public async Task<bool> HandleAsync(Answer3 e, CancellationToken ct)
         {
             return true;
         }
 
-        public async Task<bool> HandleAsync(Answer1 e)
+        public async Task<bool> HandleAsync(Answer1 e, CancellationToken ct)
         {
             return true;
         }
 
-        public async Task<bool> HandleAsync(Question e)
+        public async Task<bool> HandleAsync(Question e, CancellationToken ct)
         {       
             return true;
         }
