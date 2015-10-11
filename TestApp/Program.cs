@@ -14,9 +14,6 @@ namespace TestApp
         static void Main(string[] args)
         {
             AutofacConfig.Register();
-            //new TestEvent1().WaitAsync<string>();
-            //var res = new TestEvent1().WaitAsync<string>().Result;
-            //var obs = new TestEvent1().WaitAllAsync<string>();
             using (Event.Subscribe((object x) => Task.FromResult(true), false))
             {
                 try
@@ -29,7 +26,7 @@ namespace TestApp
                 }
             }
             Console.WriteLine("\tTest1");
-            Console.WriteLine("TestEventHandler2 is going to be canceled, but TestEventHandler1 and TestEventHandler3 will reply");
+            Console.WriteLine("ExecuteAsync(): TestEventHandler2 is going to be canceled, but TestEventHandler1 and TestEventHandler3 will reply");
 
             CancellationTokenSource ctc = new CancellationTokenSource(900);
             try
@@ -47,7 +44,7 @@ namespace TestApp
             }
 
             Console.WriteLine("\tTest2");
-            Console.WriteLine("WaitAll() returns TestEventHandler1's and TestEventHandler3's replies");
+            Console.WriteLine("WaitAll(): returns replies from TestEventHandler1 and TestEventHandler3");
             ctc = new CancellationTokenSource(900);
             IEnumerable<string> results = null;
             try
@@ -67,7 +64,7 @@ namespace TestApp
             }
 
             Console.WriteLine("\tTest3");
-            Console.WriteLine("WaitAsync casts cancel exception");
+            Console.WriteLine("WaitAsync: casts cancel exception");
             ctc = new CancellationTokenSource(900);
             try
             {
